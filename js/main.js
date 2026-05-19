@@ -165,8 +165,7 @@ contactForm.addEventListener('submit', (e) => {
   const message = document.getElementById('message').value.trim();
 
   // Basic validation
-  // BUG #9: email regex is wrong — it only checks for "@" but not a valid domain
-  const emailRegex = /@/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     formStatus.textContent = 'Please enter a valid email address.';
     formStatus.className = 'form-status error';
