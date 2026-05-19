@@ -98,9 +98,7 @@ filterBtns.forEach(btn => {
 function animateCounter(el) {
   const target = parseInt(el.dataset.target);
   let count = 0;
-  // BUG #8: increment is calculated wrong — dividing by 10 makes very slow/imprecise counters
-  // Fix: use Math.ceil(target / 50) or a fixed step
-  const increment = target / 10;
+  const increment = Math.max(1, Math.ceil(target / 50));
   const interval = setInterval(() => {
     count += increment;
     if (count >= target) {
