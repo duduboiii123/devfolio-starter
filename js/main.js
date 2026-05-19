@@ -207,6 +207,12 @@ window.addEventListener('scroll', () => {
 backToTop.style.opacity = '0';
 backToTop.style.transition = 'opacity 0.3s ease';
 
+// ===== Dynamic Footer Year =====
+const currentYear = document.getElementById('current-year');
+if (currentYear) {
+  currentYear.textContent = new Date().getFullYear();
+}
+
 // Add reveal class to sections
 document.querySelectorAll('.about, .projects, .skills, .contact').forEach(section => {
   section.classList.add('reveal');
