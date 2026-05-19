@@ -17,11 +17,8 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
 
-// BUG #2 Fix is here — the HTML button has no onclick; this listener handles it.
-// But the toggle logic below has a bug:
-// BUG #7: classList.toggle is missing the class name string argument
 hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle(); // should be: navLinks.classList.toggle('open')
+  navLinks.classList.toggle('open');
 });
 
 // Close nav when a link is clicked
