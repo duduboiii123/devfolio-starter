@@ -6,13 +6,10 @@
 // Adds a subtle entrance when the page first loads
 document.addEventListener('DOMContentLoaded', () => {
   document.body.style.opacity = '0';
-  // BUG #10: transition style is never applied before setting opacity to 1,
-  // so the fade-in doesn't animate — it just snaps to visible.
-  // Fix: set transition BEFORE changing opacity, or use requestAnimationFrame
-  document.body.style.opacity = '1';
-  // Should be:
-  // document.body.style.transition = 'opacity 0.4s ease';
-  // requestAnimationFrame(() => { document.body.style.opacity = '1'; });
+  document.body.style.transition = 'opacity 0.4s ease';
+  requestAnimationFrame(() => {
+    document.body.style.opacity = '1';
+  });
 });
 
 // ===== Parallax on Hero =====
